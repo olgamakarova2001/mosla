@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+	<script src="{% static 'js/script.js' %}"></script>
+
+    <meta charset="utf-8" />
+
+
+<style>
+.warn  {
+width: -webkit-fit-content;
+
+
+
+    text-align:left;
+    padding:10px;
+    margin-left: 45%;
+}
+   .warninside {
+    display: none;
+    border: 4px double black;
+    width: 40%;
+     margin-left: -13%;
+    text-align:left;
+    padding:10px;
+
+
+}
+.warn:hover .warninside {
+    display: block;
+
+}
+</style>
+
+    <title>Протоколы</title>
+
+
+
+</head>
+<body class="body">
+
+<header class="header">
+	<a onclick="javascript:history.back(); return false;" class="button_back"> Назад </a>
+	{% if button_class == "primary" %}
+	<a href="/primary/{{style_buttons}}" class="button1"> Стартовые протоколы </a>
+    <a href="/results/{{style_buttons}}" class="button2"> Результаты </a>
+	{% elif button_class == "results" %}
+	<a href="/primary/{{style_buttons}}" class="button2"> Стартовые протоколы </a>
+    <a href="/results/{{style_buttons}}" class="button1"> Результаты </a>
+	{% endif %}
+	<a href="{% url 'home' %}" class="button3"> Главная страница </a>
+</header>
+
+<div class="wrapper_table">
+<div class="content_table">
+<div style="text-align:center">
+	{% if alert.0 == 1%}
+<div class="warn">
+  	<img  src="{% static 'img/warning.jpg' %}" style="max-height:100px;">
+<div class="warninside">
+      {% for warning in alert.1%}
+      {% if not forloop.first %}
+            <br>
+            <br>
+           {% endif %}
+        <div style="display: inline-block; color: red; font-weight: 500; font-size: 25px;">!&nbsp; </div>{{ warning }}<div style="display: inline-block; color: red; font-weight: 500; font-size: 25px;">&nbsp;! </div>
+        {% endfor %}
+      </div>
+</div>
+{% endif %}
+</div>
+	<h1 class="head_table">{{ header }}</h1>
+	<table class="table">
+		<tr>
+		{% for col in tableHead %}
+			<th>{{ col }}</th>
+		{% endfor %}
+		</tr>
+	{% for row in rows %}
+		<tr>
+		{% for data in row %}
+			<td>{{ data }}</td>
+		{% endfor %}
+		</tr>
+	{% endfor %}
+	</table>
+
+</div>
+</div>
+
+<footer class="footer">
+	<p>Над проектом работали:</p>
+	<p>Гурковский Артём, Зайцев Сергей, Макарова Ольга</p>
+	<p>Научный руководитель: Сластников Сергей Александрович </p>
+
+</footer>
+
+</body>
+
+
+
+</html>
+
+

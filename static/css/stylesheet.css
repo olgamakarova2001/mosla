@@ -1,0 +1,499 @@
+
+@font-face{
+    font-family: 'gothic1';
+    src: url('../fonts/gothic1.ttf') format('truetype');
+    font-weight: normal; /* жирность и другие параметры сами можете выставить */
+    font-style: normal;
+}
+/*Основная универсальная разметка страницы*/
+body {
+margin: 0px;
+font-family: gothic1, Arial;
+background-color: #white;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #504cda;
+  margin-left:auto;
+  padding-left: 0;
+  color: white;
+      }
+
+.wrapper {
+   left: 20%;
+
+    width: 80%;
+
+
+    flex-direction: column;
+
+    height 100%;
+    position: absolute;
+    bottom: 80px;
+    margin: 0;
+    background: white;
+
+
+    top:50px;
+}
+
+.content {
+
+     overflow-y: auto;
+     height: 100%;
+     padding-bottom: 60px;
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-top: 20px;
+     font-size:20px;
+     box-sizing: border-box;
+     min-height: 100%;
+
+}
+
+.footer {
+
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    height: 50px;
+    margin-top: -50px;
+    background: #7587fc;
+    padding-top: 10px;
+    padding-bottom: 22px;
+    text-indent: 30px;
+    bottom: 0px;
+    flex-direction: column;
+}
+
+.footer p{
+font-size: 12px;
+padding: 2px;
+margin: 1px;
+}
+
+	h2{
+  margin-top: 0px;
+ text-align: center;
+}
+
+/*button1 - нажатая кнопка(где сейчас)*/
+.button1 {
+background-color: white;
+color: #e2e6ff;
+margin-left: 2%;
+
+height-max: 50px;
+height:20px;
+padding: 15px;
+font-size: 15px;
+
+text-align: center;
+color: black;
+display: inline-block;
+text-decoration: none;
+}
+
+.button1:hover {
+background-color: white;
+color: black;
+
+}
+
+/*Ненажатая кнопка*/
+.button2 {
+background-color: #504cda;
+color: #e2e6ff;
+margin-left: 2%;
+
+height-max: 50px;
+height:20px;
+padding: 15px;
+font-size: 15px;
+
+text-align: center;
+display: inline-block;
+text-decoration: none;
+}
+
+.button2:hover {
+background-color: #6561ea;
+color: white;
+
+}
+
+/*Кнопка Главная страница*/
+.button3 {
+background-color: #504cda;
+color: #e2e6ff;
+
+height-max: 50px;
+height:20px;
+padding: 15px;
+font-size: 15px;
+
+margin-left:35%;
+
+text-align: center;
+display: inline-block;
+text-decoration: none;
+}
+
+.button3:hover {
+background-color: #6561ea;
+color: white;
+
+}
+
+/* Кнопка Назад */
+.button_back {
+background-color: #504cda;
+color: #e2e6ff;
+cursor: pointer;
+height-max: 50px;
+height:20px;
+padding: 15px;
+font-size: 15px;
+
+margin-left:2%;
+margin-right: 10%;
+
+text-align: center;
+display: inline-block;
+text-decoration: none;
+}
+
+.button_back:hover {
+background-color: #6561ea;
+color: white;
+
+}
+
+
+
+
+/*Раскрывающийся список и все что с этим связано*/
+
+.filter ul {
+  list-style: none;
+  margin: 1em;
+  padding-left: 1px;
+}
+
+.filter li {
+  list-style: none;
+  padding-top: 5px;
+}
+.moth {
+  padding-top: 100px;
+  display: block;
+}
+.moth p {
+  padding-top: 10px;
+  cursor: pointer;
+  display: block;
+}
+.moth p small{
+  padding: 0 1px;
+  cursor: pointer;
+  display: block;
+}
+.daught {
+  display: none;
+
+}
+
+.innermo {
+  padding: 20px 0;
+  display: block;
+  margin-top: 15px;
+}
+.innermo span {
+  padding: 0 1px;
+  cursor: pointer;
+  display: block;
+
+}
+.innerdau {
+  display: none;
+  padding: 10px 0 5px 10px;
+}
+
+.run{
+margin-top: -0px;
+margin-bottom: -10px;
+margin-left: 0px;
+display: block;
+padding: 0px;
+}
+
+
+
+
+/*small - надписи Закрыть и Ссылка*/
+
+label small{
+  font-weight: 100;
+  color:#7d7a7a
+}
+
+.itog{
+font-weight: 545;
+padding: 0;
+padding-bottom:10px;
+}
+
+
+ a {
+    color: black;
+    text-decoration: none;
+   }
+
+   a:visited {
+    color: #black;
+    text-decoration: none;
+    }
+
+   a:active {
+    color: #ff3200;
+    }
+    a:hover {
+    color: #ff3200;
+    }
+
+
+
+/*Меню турниров*/
+
+.vertical-menu {
+
+    width:20%;
+    max-width:20%;
+     position: absolute;
+    height: 85vh;
+    overflow-y: auto;
+    margin-right: 0px;
+    overflow-x: hidden;
+    background-color: #eef0ff;
+
+}
+
+.vertical-menu a {
+    background-color: #eef0ff;
+    color: black;
+    display: block;
+    padding: 12px;
+    padding-left: 25px;
+    text-decoration: none;
+    margin-right: 0px;
+    width:auto;
+}
+
+.vertical-menu a:hover {
+    background-color: #cdd5ff;
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.vertical-menu a.but_grey{
+	background-color: white;
+	color: black;
+}
+
+
+
+/*Галочка Сортировать*/
+
+input[type='checkbox']:checked ~ .toggled
+{
+    display: none;
+}
+
+input[type='checkbox'] ~ .toggled
+{
+    display: block;
+}
+
+
+
+input[type='checkbox']:checked ~ .toggledNONE
+{
+    display: block;
+}
+
+input[type='checkbox'] ~ .toggledNONE
+{
+    display: none;
+}
+
+.close {
+ margin-right:0;
+ margin-top:0;
+ margin-bottom:0;
+ margin-left:0.5em;
+
+ display:inline-block;
+ color:#7d7a7a;"
+}
+
+.close:hover{
+
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Таблица результатов */
+.table {
+	width: 70%;
+	border: none;
+	margin: auto;
+}
+.table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #eef0ff;
+	font-size: 14px;
+	border-left: 1px solid #eef0ff;
+	border-right: 1px solid #eef0ff;
+}
+.table tbody td {
+	text-align: left;
+	border-left: 1px solid #eef0ff;
+	border-right: 1px solid #eef0ff;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+.table thead tr th:first-child, .table tbody tr td:first-child {
+	border-left: none;
+}
+.table thead tr th:last-child, .table tbody tr td:last-child {
+	border-right: none;
+}
+.table tbody tr:nth-child(even){
+	background: #eef0ff;
+}
+
+/* Разметка для страницы с таблицами */
+
+.wrapper_table{
+    position: absolute;
+    flex-direction: column;
+    width:100%;
+    height 100%;
+    bottom: 80px;
+    margin: 0;
+    top:50px;
+}
+
+.content_table {
+    overflow-y: auto;
+    height: 100%;
+    bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    font-size:20px;
+    box-sizing: border-box;
+    min-height: 100%;
+
+}
+
+.head_table{
+	margin: center;
+	text-align: center;
+}
+
+/* Разметка главной страницы */
+.wrapper_main {
+   left: 20%;
+
+    width: 80%;
+    background-image: url(running.jpg);
+
+    flex-direction: column;
+
+    height 100%;
+    position: absolute;
+    bottom: 80px;
+    margin: 0;
+
+   padding-bottom: -10px;
+
+    top:50px;
+}
+
+.content_main{
+         background-image: url(running.jpg);
+         background-size: cover;
+     overflow-y: auto;
+     height: 100%;
+     padding: 0px;
+     font-size:20px;
+     box-sizing: border-box;
+     min-height: 100%;
+
+}
+
+.vertical-menu_main{
+
+    width:20%;
+    max-width:20%;
+     position: absolute;
+     padding: 0px;
+    height: 85vh;
+    overflow-y: auto;
+    margin-right: 0px;
+    overflow-x: hidden;
+        background-color: #eef0ff;
+    color: black;
+
+}
+
+.vertical-menu_main a {
+
+    display: block;
+
+}
+
+
+/*Плавное раскрытие*/
+.moth {
+  padding: 5px 0;
+}
+.moth p {
+  padding: 0 1px;
+  cursor: pointer;
+}
+.moth p small{
+  padding: 0 1px;
+  cursor: pointer;
+}
+.daught {
+  display: none;
+  padding: 10px 0 5px 10px;
+}
+
+.innermo {
+  padding: 5px 0;
+}
+.innermo span {
+  padding: 0 1px;
+  cursor: pointer;
+}
+.innerdau {
+  display: none;
+  padding: 10px 0 5px 10px;
+}

@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+     <script src="{% static 'js/ajax.js' %}"></script>
+
+	<meta charset="utf-8" />
+	<title>Результаты</title>
+
+
+
+<style>
+.vertical-menu_main .otherbutton {
+background-color: #eef0ff;
+color: black;
+margin-bottom: 0px;
+min-height: 22px;
+padding: 15px;
+padding-left: 24px;
+font-size: 16px;
+width: 90%;
+text-align: left;
+display: inline-block;
+text-decoration: none;
+overflow: visible;
+
+}
+
+.vertical-menu_main .otherbutton:hover {
+background-color: #cdd5ff;
+color: black;
+
+}
+
+.vertical-menu_main .otherbutton1 {
+background-color: #504cda;
+color: #e2e6ff;
+magrin: 0px;
+height-max: 50px;
+height:22px;
+padding: 12px;
+font-size: 16px;
+width: 100%;
+text-align: center;
+display: inline-block;
+text-decoration: none;
+
+
+}
+
+.vertical-menu_main .otherbutton1:hover {
+background-color: #6561ea;
+color: white;
+
+}
+
+
+
+.mih {
+margin:-20px;
+}
+.mih div {
+margin:0;
+margin-left:-20px;
+}
+.dih {
+  display: none;
+margin-left:-100px;
+}
+
+.hhhh{
+color: white;
+text-align: left;
+margin-left: 30px;
+text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+</style>
+
+</head>
+
+
+
+<body class="body">
+<header class="header">
+ <a onclick="javascript:history.back(); return false;" class="button_back"> Назад </a>
+</header>
+
+<div class="vertical-menu_main">
+{% for col in menu %}
+    <ul>
+        <li class="mih" style="list-style-type: none;">
+        <div class="otherbutton">{{col.0}}</div>
+        <ul class="dih" style="list-style-type: none;">
+            <li><a href="{{ col.1 }}" class="otherbutton1"> Стартовые протоколы </a> </li>
+            <li><a href="{{ col.2 }}" class="otherbutton1"> Результаты </a></li>
+        </ul>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+
+<div class="wrapper_main">
+<div class="content_main" style="backgroung-image: ">
+
+
+    <h1 class="hhhh">Проект "Разработка веб-сервиса отображения результатов легкоатлетических соревнований"</h1>
+
+	<script>
+       $(".mih div").click(function(){
+       var $a = $(this).next(".dih");
+       var $b = $(this);
+       $(".dih").not($a).slideUp();
+       $a.slideToggle();
+       });
+   </script>
+
+</div>
+</div>
+
+<footer class="footer">
+	<p>Над проектом работали:</p>
+	<p>Гурковский Артём, Зайцев Сергей, Макарова Ольга</p>
+	<p>Научный руководитель: Сластников Сергей Александрович </p>
+
+</footer>
+
+</body>
+</html>

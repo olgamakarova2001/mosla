@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<script src="{% static 'js/script.js' %}"></script>
+
+
+	<meta charset="utf-8" />
+	<title>Результаты</title>
+
+
+
+</head>
+
+<body class="body">
+
+<header class="header">
+  <a onclick="javascript:history.back(); return false;" class="button_back"> Назад </a>
+</header>
+
+<div class="wrapper_table">
+
+<div class="content_table">
+
+    <h2>ОШИБКА!</h2>>
+    <h3 style="text-align: center">
+        {{exception}}
+    </h3>
+
+	<div style="text-align: center">
+    <br>
+	<img src="{% static 'img/error.png' %}" style="max-height:200px">
+        </div>
+
+</div>
+</div>
+
+<footer class="footer">
+	<p>Над проектом работали:</p>
+	<p>Гурковский Артём, Зайцев Сергей, Макарова Ольга</p>
+	<p>Научный руководитель: Сластников Сергей Александрович </p>
+
+</footer>
+
+</body>
+</html>

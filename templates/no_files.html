@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<script src="{% static 'js/script.js' %}"></script>
+
+
+	<meta charset="utf-8" />
+	<title>Результаты</title>
+
+
+
+</head>
+
+<body class="body">
+
+<header class="header">
+
+  <a onclick="javascript:history.back(); return false;" class="button_back"> Назад </a>
+  {% if button_class == "primary" %}
+  <a href="/primary/{{Name.1}}" class="button1"> Стартовые протоколы </a>
+   <a href="/results/{{Name.1}}" class="button2"> Результаты </a>
+  {% elif button_class == "results" %}
+  <a href="/primary/{{Name.1}}" class="button2"> Стартовые протоколы </a>
+   <a href="/results/{{Name.1}}" class="button1"> Результаты </a>
+  {% endif %}
+  <a href="{% url 'home' %}" class="button3"> Главная страница </a>
+</header>
+
+
+
+<div class="vertical-menu">
+  {% for fold in folders %}
+        {% if fold.0 == Name.0 %}
+        <a class="but_grey" href="{{fold.1}}">{{fold.0}}</a>
+        {% else %}
+        <a href="{{fold.1}}">{{fold.0}}</a>
+        {% endif %}
+        {% endfor %}
+</div>
+
+
+
+<div class="wrapper">
+
+<div class="content">
+
+    <h3 style="text-align: center">Информация не найдена! <br>
+
+    <br> Попробуйте добавить папку с данными по имени "{{alert_class}}" в папку "{{Name.0}}"</h3>
+
+	<div style="text-align: center">
+    <br>
+	<img src="{% static 'img/warning.jpg' %}" style="max-height:200px">
+        </div>
+
+</div>
+</div>
+
+<footer class="footer">
+	<p>Над проектом работали:</p>
+	<p>Гурковский Артём, Зайцев Сергей, Макарова Ольга</p>
+	<p>Научный руководитель: Сластников Сергей Александрович </p>
+
+</footer>
+
+</body>
+</html>

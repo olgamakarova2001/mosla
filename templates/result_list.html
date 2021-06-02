@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+
+
+	<meta charset="utf-8" />
+	<title>Результаты</title>
+
+
+</head>
+
+
+<body class="body">
+
+<header class="header">
+
+  <a onclick="javascript:history.back(); return false;" class="button_back"> Назад </a>
+  {% if button_class == "primary" %}
+  <a href="/primary/{{Name.1}}" class="button1"> Стартовые протоколы </a>
+   <a href="/results/{{Name.1}}" class="button2"> Результаты </a>
+  {% elif button_class == "results" %}
+  <a href="/primary/{{Name.1}}" class="button2"> Стартовые протоколы </a>
+   <a href="/results/{{Name.1}}" class="button1"> Результаты </a>
+  {% endif %}
+  <a href="{% url 'home' %}" class="button3"> Главная страница </a>
+</header>
+
+
+
+<div class="vertical-menu">
+  {% for fold in folders %}
+        {% if fold.0 == Name.0 %}
+        <a class="but_grey" href="{{fold.1}}">{{fold.0}}</a>
+        {% else %}
+        <a href="{{fold.1}}">{{fold.0}}</a>
+        {% endif %}
+        {% endfor %}
+</div>
+
+
+
+
+<div class="wrapper">
+
+<div class="content">
+<h1 style="text-align:center;" >{{Name.0}}</h1>
+
+
+
+  Сортировать по дистанции <input type="checkbox" class="toggle"> </input>
+
+
+
+<div class="toggledNONE">
+<div class="filter">
+
+	<ul>
+			{% for slineKey, slineValue in resultCountDict.items %}
+			<li class="moth">
+				<p class="run">▶ Бег {{slineKey}}м </p>
+					<ul class="daught">
+						{% for key in slineValue %}
+						<li class="innermo">
+					<span class="run1" >▶ {{key.0}} </span>
+					<ul class="innerdau">
+						{% for link in key.1 %}
+						{% if  button_class == "results" and forloop.first %}
+								<li>
+									<div class="itog">	<label> <a href="{{link.0}}"> {{link.1}}  </a> <small>   [Ссылка]</small></label> </div>
+								</li>
+						{% else %}
+							<li>
+								<label><a href="{{link.0}}">{{link.1}}</a> <small>   [Ссылка]</small></label>
+						{% endif %}
+						{% endfor %}
+					</ul>
+					</li>
+					{% endfor %}
+					</ul>
+				<br>
+				</li>
+			{% endfor %}
+        <li class="moth">
+
+            {% if Marker != 0 %}
+            <li class="moth">
+            <p class="run">▶ Hеотсортированные данные</p>
+                <ul class="daught">
+			{% for key, values in resultDict.items %}
+			<li  class="innermo">
+					<span  >▶ {{key}}</span>
+					<ul class="innerdau">
+						{% for link in values %}
+							{% if  button_class == "results" and forloop.first %}
+								<li>
+									<div class="itog">	<label> <a href="{{link.0}}">  {{link.1}}  </a> <small>   [Ссылка]</small></label> </div>
+								</li>
+							{% else %}
+								<li>
+									<label><a href="{{link.0}}">{{link.1}}</a><small>   [Ссылка]</small></label>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				<br>
+				</li>
+			{% endfor %}
+        </ul>
+        {% endif %}
+		</ul>
+</div>
+</div>
+
+
+
+<div class="toggled">
+	<div class="filter">
+
+		<ul>
+			{% for key, values in resultNotCount.items %}
+			<li class="innermo">
+					<span style= "display:inline;" >▶ {{key}}	</span>
+					<ul class="innerdau">
+						{% for link in values %}
+							{% if  button_class == "results" and forloop.first %}
+								<li>
+									<div class="itog">	<label> <a href="{{link.0}}"> {{link.1}}  </a> <small>   [Ссылка]</small></label> </div>
+								</li>
+							{% else %}
+								<li>
+									<label><a href="{{link.0}}">{{link.1}}</a><small>   [Ссылка]</small></label>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				<br>
+				</li>
+			{% endfor %}
+		</ul>
+    </div>
+	</div>
+
+
+
+
+</div>
+</div>
+
+
+   <script>
+       $(".moth p").click(function(){
+       var $a = $(this).next(".daught");
+       var t = $(this).text().slice(1,);
+       var q = $(this).text().slice(0, 1);
+       var $b = $(this);
+       $(".innerdau").slideUp();
+       $(".daught").not($a).slideUp();
+       $a.slideToggle();
+       if ( q == '▶'){
+        $b.text("▼" + t);
+       } else{
+        $b.text("▶" + t);
+       }
+       $(".moth p").not($b).each(function(){
+        $(this).text("▶" + $(this).text().slice(1,));
+       });
+       $(".innermo span").each(function(){
+        $(this).text("▶" + $(this).text().slice(1,));
+       });
+       });
+   </script>
+
+<script>
+       $(".innermo span").click(function(){
+       var $a = $(this).next(".innerdau");
+       var $b = $(this);
+       var t = $(this).text().slice(1,);
+       var q = $(this).text().slice(0, 1);
+       $a.slideToggle();
+       $(".innerdau").not($a).slideUp();
+       if ( q == '▶'){
+        $b.text("▼" + t);
+       } else{
+        $b.text("▶" + t);
+       }
+       $(".innermo span").not($b).each(function(){
+        $(this).text("▶" + $(this).text().slice(1,));
+       });
+       });
+</script>
+
+
+<footer class="footer">
+	<p>Над проектом работали:</p>
+	<p>Гурковский Артём, Зайцев Сергей, Макарова Ольга</p>
+	<p>Научный руководитель: Сластников Сергей Александрович </p>
+
+</footer>
+
+</body>
+</html>
