@@ -6,12 +6,12 @@ RESULTS=results
 
 $
 Введите названия после знака '=' без пробела
-Папка FOLDER NAME, содержащая результаты и стартовые протоколы, должна находится внутри папки mosla1
-В графе DIRECTORY NAME необходимо указать путь после mosla1
+Папка FOLDER NAME, содержащая результаты и стартовые протоколы, должна находится внутри папки mosla
+В графе DIRECTORY NAME необходимо указать путь после mosla
 
 Пример работы:
 
-Полный путь: C:\Users\user1\PycharmProjects\project1\mosla1\fold0\fold1\fold2\datafiles
+Полный путь: C:\Users\user1\PycharmProjects\project1\mosla\fold0\fold1\fold2\datafiles
 
 В папке datafiles хранится папка "Турнир 1", которая содержит стартовые протоколы в папке start
 и результаты в папке finish
