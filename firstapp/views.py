@@ -313,21 +313,3 @@ def showJoinedResult(request, foldnum, number):
    return render(request, "simple_table.html", data)
 
 
-def primaryIndex(request):
-   try:
-       folder_menu = folder_seek(PRIMARY_SOURCE_PATH)
-       data = {"folders": folder_menu, "button_class": "primary"}
-   except Exception as e:
-       errordat = {"exception": e}
-       return render(request, "eroha.html", errordat)
-   return render(request, "folder_menu.html", data)
-
-
-def resultIndex(request):
-   try:
-       folder_menu = folder_seek(RESULT_SOURCE_PATH)
-       data = {"folders": folder_menu, "button_class": "results"}
-   except Exception as e:
-       errordat = {"exception": e}
-       return render(request, "eroha.html", errordat)
-   return render(request, "folder_menu.html", data)
