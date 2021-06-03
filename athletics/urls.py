@@ -18,10 +18,8 @@ from django.urls import path
 from firstapp import views
 
 urlpatterns = [
-    path('primary', views.primaryIndex, name='primary'),
     path('primary/<str:foldnum>/', views.showPrimaryData, name='primary'),
     path('primary/<str:foldnum>/<str:source>/<int:number>/', views.showPrimary),
-    path('results', views.resultIndex, name='results'),
     path('results/<str:foldnum>/', views.showResultData, name='results'),
     path('results/<str:foldnum>/<str:source>/', views.showResult),
     path('', views.index, name='home'),
