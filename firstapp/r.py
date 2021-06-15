@@ -49,20 +49,29 @@ def comp(p1, p2, r):
            return True
 
 def num(list, r, startnum):
-   place = startnum
-   prevrez = list[0].rounds[r-1][0]
-   prevrun = list[0].rounds[r-1][1]
-   for i in list:
-       if i.rounds[r-1][0] != prevrez:
-           place +=1
-       else:
-           if i.rounds[r-1][1] == prevrun:
-               place +=1
-       i.gennum = place
-       prevrez = i.rounds[r-1][0]
-       prevrun = i.rounds[r-1][1]
-
-   return place
+    offset = 0
+    place = startnum
+    prevrez = list[0].rounds[r-1][0]
+    prevrun = list[0].rounds[r-1][1]
+    for i in list:
+        if i.rounds[r-1][0] != prevrez:
+            place += 1
+            place += offset
+            offset = 0
+        else:
+            if i.rounds[r-1][1] == prevrun:
+                place += 1
+                place += offset
+                offset = 0
+            else:
+                offset += 1
+        if i.rounds[r-1][0] in ['ФС', 'НФ', 'НС', 'ДК', '?'] and r == 1:
+            i.gennum = '-'
+        else:
+            i.gennum = place
+        prevrez = i.rounds[r-1][0]
+        prevrun = i.rounds[r-1][1]
+    return place
 
 
 def bubblesort(list, r):
