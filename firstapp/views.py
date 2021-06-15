@@ -202,7 +202,7 @@ def showResultData(request, foldnum):
                        resDict.setdefault(sline, [])
                        if (row[3], linkDict.get(row[3])) not in resDict.get(sline):
                            resDict.get(sline).append((row[3], linkDict.get(row[3])))
-                           unsortedDict.setdefault(row[3], []).append(link)
+                          
 
                    else:
                        if generatork != int(fName[:3]):
